@@ -1,5 +1,6 @@
 {
-  "name": "to-do-list-task-manager",
+  "name": "mindcraft",
+  "authors": "Milka Zekarias, Amelie Dinh, Jonathan Wong, Charlize Briggs, and Matthew De Jesus",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^11.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
