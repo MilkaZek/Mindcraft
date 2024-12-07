@@ -1,4 +1,4 @@
-export default function Task_Input({ task, setTask, setTasks }) {
+export default function Task_Input({ task, setTask, setTasks, user }) {
     function taskset(event) {
       setTask(event.target.value);
     }
@@ -17,7 +17,12 @@ export default function Task_Input({ task, setTask, setTasks }) {
           value={task}
           placeholder="Enter a task..."
         />
-        <button onClick={handleAddTask}>Add Task</button>
+
+        {user ? (
+          <button onClick={handleAddTask}>Add Task</button>
+        ) : (
+          <button disabled>Sign in to add task</button>
+        )}
       </div>
     );
   }

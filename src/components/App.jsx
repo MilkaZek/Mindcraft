@@ -6,7 +6,8 @@ import Minigame from "./Minigame.jsx";
 import Timer from "./Timer.jsx";
 import TaskManager from "./TaskManager.jsx";
 import "./App.css";
-
+import { useAuthentication } from "../services/authService";
+import { SignIn, SignOut } from "./Auth.jsx";
 
 export default function App() {
   const [pokemonData, setPokemonData] = useState({});
@@ -26,6 +27,7 @@ export default function App() {
   const [message, setMessage] = useState(""); // Message to display in the popup // State to control pop-up visibility
   const workTime = time * 60; // 25 minutes
   const restTime = 5 * 60; // 5 minutes
+  const user = useAuthentication();
 
   useEffect(() => {
     const url = `https://pokeapi.co/api/v2/pokemon/${num}/`;
@@ -52,6 +54,11 @@ export default function App() {
   return (
     <div className="App">
       <h1>Pomodoro Timer</h1>
+
+      <div className = "auth-container">
+        {!user ? <SignIn /> : <SignOut />}
+      </div>
+
       <Timer
         workTime={workTime}
         restTime={restTime}
@@ -68,7 +75,7 @@ export default function App() {
       <Background />
       <div className="task-section">
         <h2>Tasks To Do</h2>
-        <TaskInput task={task} setTask={setTask} setTasks={setTasksToDo} />
+        <TaskInput task={task} setTask={setTask} setTasks={setTasksToDo} user={user}/>
         <TaskManager
           tasks={tasksToDo}
           setTasks={setTasksToDo}
