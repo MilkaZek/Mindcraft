@@ -10,14 +10,6 @@ export function logout() {
   return signOut(auth);
 }
 
-export function loggedInUserDisplayName() {
-  return auth.currentUser ? auth.displayName : "Guest";
-}
-
-export function loggedInUserId() {
-  return auth.currentUser.uid;
-}
-
 export function useAuthentication() {
   const [user, setUser] = useState(null);
   useEffect(() => {
