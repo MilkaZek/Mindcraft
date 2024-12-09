@@ -2,14 +2,14 @@ export default function Minigame({
     data,
     action,
     message,
-    setpopup,
+    setPopup,
     msg,
     streak,
-    setstreak,
+    setStreak,
     setWork,
   }) {
     function closePopup() {
-      setpopup(false);
+      setPopup(false);
       setWork(false);
     }
   
@@ -23,10 +23,10 @@ export default function Minigame({
   
       if (ans.toLowerCase() === data.name) {
         message("Congrats! 🎉 You are correct.");
-        setstreak(streak + 1);
+        setStreak(streak + 1);
       } else {
         message("Oops! WRONG answer.");
-        setstreak(0);
+        setStreak(0);
       }
       if (streak >= 10) {
         message("You're on fire!!!❤️‍🔥");

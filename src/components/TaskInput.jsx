@@ -1,4 +1,4 @@
-export default function Task_Input({ task, setTask, createTask, user }) {
+export default function TaskInput({ task, setTask, createTask, user }) {
   function taskset(event) {
     setTask(event.target.value);
   }

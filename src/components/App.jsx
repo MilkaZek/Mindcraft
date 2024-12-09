@@ -155,14 +155,14 @@ export default function App() {
           data={pokemonData}
           action={setNum}
           popup={showPokemonPopup}
-          setpopup={(value) => {
+          setPopup={(value) => {
             setShowPokemonPopup(value);
             if (!value) setIsWorkPeriod(true);
           }}
           message={setMessage}
           msg={message}
           streak={streak}
-          setstreak={setStreak}
+          setStreak={setStreak}
           work={isWorkPeriod}
           setWork={setIsWorkPeriod}
         />
