@@ -1,51 +1,31 @@
-import { db } from "../firebaseConfig";
-import { doc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-
 export default function TaskManager({
   user,
   tasks,
-  setTasks,
   completedTasks,
-  setCompletedTasks,
   popup,
   setPopup,
+  completeTask,
   error,
   joke,
+  setJoke
 }) {
 
   const handleCompleteTask = async (taskIndex) => {
+    setPopup(true)
     if (!user) {
       console.error("No user authenticated.");
       return;
     }
     const taskToComplete = tasks[taskIndex];
     try {
-      const userTasksRef = doc(db, "tasks", user.uid);
-      const userCompletedTasksRef = doc(db, "completed_tasks", user.uid);
-
-      await updateDoc(userTasksRef, {
-        tasks: arrayRemove(taskToComplete)
-      });
-
-      await setDoc(userCompletedTasksRef, 
-        { completedTasks: arrayUnion({
-          ...taskToComplete,
-          status: "completed",
-          })
-        },
-        { merge: true } 
-      );
-
-      setTasks((prevTasks) => prevTasks.filter((_, index) => index !== taskIndex));
-      setCompletedTasks((prevCompleted) => [...prevCompleted, taskToComplete]);
-
-      setPopup(true); 
+      await completeTask(taskToComplete);
     } catch (error) {
       console.error("Error completing task: ", error);
     }
   };
 
   function closePopup() {
+    setJoke("")
     setPopup(false);
   }
 
@@ -70,7 +50,7 @@ export default function TaskManager({
         </ul>
       </div>
 
-      {popup && (
+      {popup && joke && (
         <div className="popup">
           <div className="popup-content">
             <h2>🎉 Task Completed!</h2>

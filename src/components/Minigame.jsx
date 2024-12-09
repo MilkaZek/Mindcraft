@@ -8,7 +8,7 @@ export default function Minigame({
     setstreak,
     setWork,
   }) {
-    function closePopup(e) {
+    function closePopup() {
       setpopup(false);
       setWork(false);
     }

@@ -10,6 +10,7 @@ import { useAuthentication } from "../services/authService";
 import { SignIn, SignOut } from "./Auth.jsx";
 import { db } from "../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
+import { addTask, completeTask } from "../services/taskService";
 
 export default function App() {
   const [pokemonData, setPokemonData] = useState({});
@@ -26,7 +27,7 @@ export default function App() {
   const [completedTasks, setCompletedTasks] = useState([]);
   const [showJokePopup, setShowJokePopup] = useState(false);
   const [showPokemonPopup, setShowPokemonPopup] = useState(true);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState(""); 
   const workTime = time * 60;
   const restTime = 5 * 60;
   const user = useAuthentication();
@@ -39,18 +40,21 @@ export default function App() {
       .catch((error) => console.error("Error fetching Pokémon data:", error));
   }, [num]);
 
+  
   useEffect(() => {
-    const url = "https://v2.jokeapi.dev/joke/Any";
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) =>
-        setJoke(
-          data.type === "twopart"
-            ? `${data.setup} - ${data.delivery}`
-            : data.joke
+    if (showJokePopup) {
+      const url = "https://v2.jokeapi.dev/joke/Any";
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) =>
+          setJoke(
+            data.type === "twopart"
+              ? `${data.setup} - ${data.delivery}`
+              : data.joke
+          )
         )
-      )
-      .catch((error) => console.error("Error fetching Pokémon data:", error));
+        .catch((error) => console.error("Error fetching joke:", error));
+    }
   }, [showJokePopup]);
 
   useEffect(() => {
@@ -80,6 +84,29 @@ export default function App() {
     fetchTasks();
   }, [user]);
 
+  const createTask = async (task) => {
+    if (user) {
+      try {
+        const newTask = await addTask(user.uid, task);
+        setTasksToDo((prev) => [...prev, newTask]);
+      } catch (error) {
+        console.error("Error adding task:", error);
+      }
+    }
+  };
+
+  const completeTaskHandle = async (task) => {
+    if (user) {
+      try {
+        await completeTask(user.uid, task);
+        setTasksToDo((prev) => prev.filter((t) => t.task !== task.task));
+        setCompletedTasks((prevCompleted) => [...prevCompleted, task]);
+      } catch (error) {
+        console.error("Error completing task:", error);
+      }
+    }
+  };
+
   return (
     <div className="App">
       <h1>Pomodoro Timer</h1>
@@ -104,38 +131,42 @@ export default function App() {
       <Background />
       <div className="task-section">
         <h2>Tasks To Do</h2>
-        <TaskInput task={task} setTask={setTask} setTasks={setTasksToDo} user={user}/>
+        <TaskInput 
+          task={task} 
+          setTask={setTask} 
+          createTask= {createTask}
+          user={user}/>
         <TaskManager
           tasks={tasksToDo}
-          setTasks={setTasksToDo}
           completedTasks={completedTasks}
-          setCompletedTasks={setCompletedTasks}
           popup={showJokePopup}
           setPopup={setShowJokePopup}
+          completeTask = {completeTaskHandle}
           error={error}
           joke={joke}
+          setJoke = {setJoke}
           user={user}
         />
       </div>
 
       {isWorkPeriod === false && showPokemonPopup && (
         <div className="popup">
-          <Minigame
-            data={pokemonData}
-            action={setNum}
-            popup={showPokemonPopup}
-            setpopup={(value) => {
-              setShowPokemonPopup(value);
-              if (!value) setIsWorkPeriod(true);
-            }}
-            message={setMessage}
-            msg={message}
-            streak={streak}
-            setstreak={setStreak}
-            work={isWorkPeriod}
-            setWork={setIsWorkPeriod}
-          />
-        </div>
+        <Minigame
+          data={pokemonData}
+          action={setNum}
+          popup={showPokemonPopup}
+          setpopup={(value) => {
+            setShowPokemonPopup(value);
+            if (!value) setIsWorkPeriod(true);
+          }}
+          message={setMessage}
+          msg={message}
+          streak={streak}
+          setstreak={setStreak}
+          work={isWorkPeriod}
+          setWork={setIsWorkPeriod}
+        />
+      </div>
       )}
     </div>
   );

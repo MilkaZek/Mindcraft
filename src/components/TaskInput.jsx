@@ -1,30 +1,12 @@
-import { db } from "../firebaseConfig";
-import { doc, setDoc, arrayUnion } from "firebase/firestore";
-
-export default function Task_Input({ task, setTask, setTasks, user }) {
+export default function Task_Input({ task, setTask, createTask, user }) {
   function taskset(event) {
     setTask(event.target.value);
   }
 
   async function handleAddTask() {
+    if (!task.trim()) return;
     try {
-      const userTasksRef = doc(db, "tasks", user.uid);
-  
-      const taskObj = {
-        task: task,
-        timestamp: new Date(),
-        status: "pending",
-      };
-  
-      await setDoc(userTasksRef, {
-        tasks: arrayUnion(taskObj),
-      }, { merge: true });
-  
-      setTasks((prevTasks) => {
-        const updatedTasks = [...prevTasks, taskObj];
-        return updatedTasks;
-      });
-  
+      await createTask(task);
       setTask("");
     } catch (error) {
       console.error("Error adding task:", error);
