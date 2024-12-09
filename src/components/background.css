@@ -1,0 +1,42 @@
+/* background.css */
+
+
+.background-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(145deg, #dde6ef, #76bef6); /* Soft gradient background */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    margin: auto;
+  }
+   .background-container p {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #ffffff; /* Lavender color */
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+   .background-select {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background-color: #b9d5ff; /* Soft pink background */
+    color: #060606; /* Darker lavender text */
+    transition: all 0.3s ease;
+  }
+   .background-select:hover {
+    background-color: #5198fc; /* Light purple on hover */
+    color: #fff; /* White text on hover */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+   .background-select:focus {
+    outline: none;
+    border: 2px solid #4369f3; /* Border color when focused */
+  }
+  
+ 
