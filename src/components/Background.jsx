@@ -26,19 +26,18 @@ export default function Background() {
         padding: "1rem",
       }}
     >
-      {/* "Choose a Background" label with smaller text */}
-      <h2 style={{ marginBottom: "1rem", fontSize: "14px" }}>Choose a Background:</h2> {/* Smaller font size */}
+      <h2 style={{ marginBottom: "1rem", fontSize: "14px" }}>Choose a Background:</h2>
       
       <select
         onChange={change}
         style={{
-          padding: "8px",  // Smaller padding for a smaller dropdown
-          fontSize: "14px",  // Smaller font size
+          padding: "8px",
+          fontSize: "14px",
           borderRadius: "5px",
           border: "1px solid #ccc",
           cursor: "pointer",
           width: "100%",
-          maxWidth: "200px",  // Smaller width
+          maxWidth: "200px",
         }}
       >
         <option style={{ color: "#555" }} value="#f5f5f5">

@@ -1,30 +1,25 @@
-/* Ensures the container is positioned absolutely */
 .timer-container {
-    position: absolute;
-    top: 20px;    /* Adds space from the top */
-    left: 20px;   /* Adds space from the left */
-    z-index: 10;  /* Ensures the select is above other elements */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   }
-   /* Styling the label */
-  .timer-label {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;  /* Space between the label and select */
-    color: #4A90E2;  /* Color for the label text */
-  }
-   /* Styling the select input (dropdown) */
-  .timer-select {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 8px;  /* Rounded corners */
-    border: 2px solid #020202;  /* Blue border */
-    background-color: #f0f8ff;  /* Light background color */
-    color: #333;  /* Text color */
-    cursor: pointer;
-    transition: border-color 0.3s ease;  /* Smooth border color change */
-  }
-  
- 
+.timer-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #4A90E2;
+}
+.timer-select {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;  
+  border: 2px solid #020202;
+  background-color: #f0f8ff;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}

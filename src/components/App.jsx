@@ -43,7 +43,7 @@ export default function App() {
   
   useEffect(() => {
     if (showJokePopup) {
-      const url = "https://v2.jokeapi.dev/joke/Any";
+      const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit";
       fetch(url)
         .then((response) => response.json())
         .then((data) =>
