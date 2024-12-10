@@ -1,12 +1,9 @@
-/* background.css */
-
-
 .background-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(145deg, #dde6ef, #76bef6); /* Soft gradient background */
+    background: linear-gradient(145deg, #dde6ef, #76bef6);
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 200px;
@@ -15,7 +12,7 @@
    .background-container p {
     font-family: 'Arial', sans-serif;
     font-size: 18px;
-    color: #ffffff; /* Lavender color */
+    color: #ffffff;
     margin-bottom: 15px;
     font-weight: bold;
   }
@@ -24,19 +21,19 @@
     font-size: 16px;
     border: none;
     border-radius: 12px;
-    background-color: #b9d5ff; /* Soft pink background */
-    color: #060606; /* Darker lavender text */
+    background-color: #b9d5ff;
+    color: #060606;
     transition: all 0.3s ease;
   }
    .background-select:hover {
-    background-color: #5198fc; /* Light purple on hover */
-    color: #fff; /* White text on hover */
+    background-color: #5198fc;
+    color: #fff;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
    .background-select:focus {
     outline: none;
-    border: 2px solid #4369f3; /* Border color when focused */
+    border: 2px solid #4369f3;
   }
   
  

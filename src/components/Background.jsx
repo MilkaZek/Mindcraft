@@ -40,11 +40,11 @@ export default function Background() {
           maxWidth: "200px",
         }}
       >
-        <option style={{ color: "#555" }} value="#f5f5f5">
-          Light Gray
-        </option>
         <option style={{ color: "#a67c52" }} value="#f0e4d7">
           Warm Beige
+        </option>
+        <option style={{ color: "#555" }} value="#f5f5f5">
+          Light Gray
         </option>
         <option style={{ color: "#668c88" }} value="#b8d8d8">
           Pale Teal
