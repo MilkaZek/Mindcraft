@@ -5,4 +5,4 @@ Project Collaborators: Milka Zekarias, Charlize Briggs, Amelie Dinh, Jonathan Wo
 The Pomodoro Task Manager is a productivity tool that combines a customizable to-do list with the popular Pomodoro technique to help you stay focused and organized. This application includes features for tracking tasks, setting a timer for focused work sessions, and personalizing the app’s aesthetics to suit your preferences.
 
 Check out Mindcraft here!
-https://mindcraft-43906.web.app] <-- This project is hosted on Firebase!
+https://mindcraft-43906.web.app <-- This project is hosted on Firebase!
