@@ -10,6 +10,7 @@ The Pomodoro Task Manager is a productivity tool that combines a customizable to
 **Features:**
 - Pomodoro Timer, adjustable for work and break periods
 - "Who's that Pokémon?" game that pops up after the work period timer ends (Pokémon API used here)
+
 And once you sign in through Firebase Authentication you can also modify a ...
 - To-do list that has a Firestore collection for each user
 - Completed tasks list - a separate Firestore collection that is added to once tasks are completed and removed from the To-do list
