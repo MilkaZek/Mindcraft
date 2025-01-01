@@ -5,7 +5,7 @@ Our CMSI 2021 Final Project!
 Milka Zekarias, Charlize Briggs, Amelie Dinh, Jonathan Wong, Matthew De Jesus
 
 ## What is it?
-The Pomodoro Task Manager is a productivity tool that combines a customizable To-do list with the popular Pomodoro technique to help you stay focused and organized. This application includes features for tracking tasks, setting a timer for focused work sessions, and personalizing the app’s aesthetics to suit your preferences.
+Mindcraft is a productivity tool that combines a customizable To-do list with the popular Pomodoro technique to help you stay focused and organized. This application includes features for tracking tasks, setting a timer for focused work sessions, and personalizing the app’s aesthetics to suit your preferences.
 
 **Features:**
 - Pomodoro Timer, adjustable for work and break periods
