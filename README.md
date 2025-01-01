@@ -19,5 +19,6 @@ And once you sign in through Firebase Authentication you can also modify a ...
 ## What was this built with?
 Firebase, React, Vite, & some APIs!
 
+
 **Check out Mindcraft here!**
 - https://mindcraft-43906.web.app <-- This project is hosted on Firebase!
